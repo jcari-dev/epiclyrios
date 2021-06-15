@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PlayList = () => {
+const Home = () => {
 return (
 	<div
 	style={{
@@ -10,9 +10,10 @@ return (
 		height: '100vh'
 	}}
 	>
-	<h1>Personal Video PlayList</h1>
+	<h1>Welcome to Lyrios</h1>
+    <h3>A true music experience</h3>
 	</div>
-);
+  );
 };
 
-export default PlayList;
+export default Home;
