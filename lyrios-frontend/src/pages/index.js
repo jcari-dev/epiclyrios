@@ -5,14 +5,17 @@ return (
 	<div
 	style={{
 		display: 'flex',
-		justifyContent: 'Right',
+		justifyContent: 'Center',
 		alignItems: 'Right',
 		height: '100vh'
 	}}
 	>
-	<h1>Welcome to Lyrios</h1>
-    <h3>A true music experience</h3>
-	</div>
+       <div>
+	     <h1>Welcome to Lyrios</h1>
+          <br />
+         <h3>A true music experience</h3>
+       </div>
+    </div>
   );
 };
 

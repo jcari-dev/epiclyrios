@@ -8,7 +8,7 @@ background: black;
 height: 100px;
 display: flex;
 justify-content: space-between;
-padding: 0.2rem calc((100vw - 1000px) / 2);
+padding: 0.4rem calc((100vw - 1000px) / 2);
 z-index: 12;
 
 `;
@@ -36,7 +36,7 @@ color: #808080;
 	top: 0;
 	right: 0;
 	transform: translate(-100%, 75%);
-	font-size: 1.8rem;
+	font-size: 1.8 rem;
 	cursor: pointer;
 }
 `;
