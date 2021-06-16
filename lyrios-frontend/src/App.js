@@ -8,6 +8,7 @@ import Session from './pages/session';
 import Show from './pages/show';
 import User from './pages/user';
 import Search from './components/Search'
+import Lyrics from './components/Lyrics'
 function App() {
   const URL = "testing"
   return (
@@ -26,6 +27,7 @@ function App() {
         </Switch>
         </Router>
       <Search/>
+      <Lyrics/>
     </div>
   );
 }
