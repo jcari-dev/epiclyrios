@@ -8,6 +8,7 @@ import Session from './pages/session';
 import Show from './pages/show';
 import User from './pages/user';
 import Search from './pages/search';
+import Lyrics from './components/Lyrics'
 
 function App() {
 
@@ -28,7 +29,8 @@ function App() {
           <Route path='/sign-up' component={SignUp} /> */}
         </Switch>
         </Router>
-  
+      <Search/>
+      <Lyrics/>
 
     </div>
   );
