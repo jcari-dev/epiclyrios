@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios'
+import Axios from 'axios';
+
 
 //need to require cors in server.js and app.use middleware
 function Lyrics (props) {
@@ -20,7 +21,6 @@ const URL = `${baseURL}${q}${limit}${apiKey}${type}${hasLyrics}`;
         )
         //set lyrics state to response
         getLyricsData(response.data.result[0].api_lyrics)
-        // console.log(response)
        return 'response'
     }
         
@@ -30,6 +30,7 @@ const URL = `${baseURL}${q}${limit}${apiKey}${type}${hasLyrics}`;
             data +'?'+apiKey
         )
         setLyricsData(response.data.result.lyrics)
+        console.log(response.data)
         return 'response'
     }
     //get only after page is rendered
@@ -38,8 +39,8 @@ const URL = `${baseURL}${q}${limit}${apiKey}${type}${hasLyrics}`;
     }, [])
     //return statement from the call to render to page
     return(
-        <div>
-            <h3>{lyricsData ? <>  {lyricsData}  </> : 'No Lyrics data was gathered'}</h3>
+        <div className = "container">
+            <h3 className = "lyrics">{lyricsData ? <>  {lyricsData}  </> : 'No Lyrics data was gathered'}</h3>
          </div>
     )
 }
