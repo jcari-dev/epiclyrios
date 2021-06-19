@@ -1,9 +1,9 @@
-import React from 'react';
-
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchForm = (props) => {
     //State to hold the search query
-    const [searchQuery, setSearchQuery] = React.useState({searchterm: "",})
+    const [searchQuery, setSearchQuery] = React.useState({searchterm: "",});
     //Updates searchQuery when we type into the form
     const handleChange = (event) => {
         setSearchQuery({...searchQuery, [event.target.name]: event.target.value})
@@ -14,6 +14,7 @@ const SearchForm = (props) => {
         event.preventDefault();
         //use the search query to pass query to songSearch prop, in new page output
         props.songSearch(searchQuery.searchterm)
+
     }
 
 
@@ -27,9 +28,12 @@ const SearchForm = (props) => {
                     onChange={handleChange}
                     value = {searchQuery.searchterm}
                     />
+                <Link to = '/search'>
                 <input className = "button is-info" type = "submit" value = "submit" />
+                </Link>
             </form>
         </div>
+
     )
 }
 
