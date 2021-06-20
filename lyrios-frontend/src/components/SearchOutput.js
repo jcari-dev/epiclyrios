@@ -9,7 +9,7 @@ const SearchOutput = (youtubeData) => {
        <div>
           
             {/* <YouTube videoId= {youtubeData.results.items[0].id.videoId} /> */}
-            {/* <div className = 'videoMap'>
+            <div className = 'videoMap'>
             {youtubeData ?   <>     
             {youtubeData.results.map((value, index)=>{
                 console.log(value)
@@ -22,7 +22,7 @@ const SearchOutput = (youtubeData) => {
 
             })}</> : <p>Please submit a search request.</p>
             }  
-            </div>  */}
+            </div> 
         </div>
       
     )

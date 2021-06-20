@@ -53,7 +53,7 @@ function GetSearch () {
     return(
         <div>
             <SearchBar songSearch={getData}/>
-            <SearchOutput results = {youtubeData}/>
+            {youtubeData && <SearchOutput results = {youtubeData}/>}
         </div>
     )
 }

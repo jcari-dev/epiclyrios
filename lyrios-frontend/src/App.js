@@ -28,9 +28,10 @@ function App() {
           <Route path='/blogs' component={Blogs} />
           <Route path='/sign-up' component={SignUp} /> */}
         </Switch>
-        </Router>
-      <Search/>
-      <Lyrics/>
+        {/* <Search/> */}
+        <Lyrics/>
+      </Router>
+
 
     </div>
   );
