@@ -10,7 +10,7 @@ const type = '&type=video';
 //API Key 1
 // const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
 //API Key 2
-const key = '&key=AIzaSyAlEKircfin7Ratd0qMcJT50yknQLgk67c';
+const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A';
 const topicId = '&topicId=04rlf'
 const URL = `${baseURL}${search}${maxResult}${type}${key}${topicId}${keyWord}`;
 const artist = ['beyonce','sza','ariana grande','jay-z','rihanna','cold play','snoop dogg','bruno mars','marc anthony','bad bunny','incubus',
@@ -37,16 +37,21 @@ function VideoOutput (props) {
         // 'a boggie wit da hoodie','tiesto','billy joel','john mayer','el alfa','omega','celia cruz','cardi b','miguel','leon bridges']
         // const random = Math.round(Math.random()*artist.length)
         // const randomArtist = artist[random]
-        console.log(artist[random])
+        console.log(randomArtist)
         const response = await Axios.get(
             `${baseURL}${search}${maxResult}${type}${key}${topicId}&q=${randomArtist}`
         )
 
         console.log(response.data.items)
         setYoutubeData(response.data.items)
+        const title = response.data.items[randomNumber].snippet.title;
+        const stripped = title.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+        console.log(stripped)
+    
     
     const baseLyricsURL = "https://api.happi.dev/v1/music?";
-        const q = "q=" + randomArtist;
+        const q = "q=" + stripped;
+        console.log(q)
         const hasLyrics = "&lyrics=1";
         const limit = "&limit=";
         const lyricsType = "&type=";
@@ -72,6 +77,7 @@ function VideoOutput (props) {
                 const response = await Axios.get(
                     data +'?'+apiKey
                 )
+                console.log(response.data.result.lyrics)
                 setLyricsData(response.data.result.lyrics)
                 return 'response'
             }
@@ -86,6 +92,7 @@ function VideoOutput (props) {
     //1. Need form to get the YouTube Data
     //2. Display Youtube Data
     const randomNumber = Math.floor(Math.random()*10)
+    
     // const songIndex = artist[randomNumber]
     // console.log(songIndex)
     // console.log(youtubeData[randomNumber].snippet.title)
@@ -93,12 +100,14 @@ function VideoOutput (props) {
         <div>
             {/* <h2>{youtubeData ? <>  {youtubeData.items[0].snippet.title}  <YouTube videoId= {youtubeData.items[0].id.videoId} /> </> : 'No YouTube data was gathered'}</h2> */}
             <div>{youtubeData ? <><h4 className ="videoTitle">{youtubeData[randomNumber].snippet.title}</h4>  <YouTube videoId= {youtubeData[randomNumber].id.videoId}/> </> :
-            'No YouTube data was gathered'}</div>
+            'No YouTube data was gathered'}
+            <p className = 'lyrics'>{lyricsData ? <> {lyricsData} </> : 'No lyrics data was gathered'} </p>
+            </div>
             {/* <h2>{youtubeData[0].snippet.title} </h2> */}
             <div className = 'videoMap'>
             {youtubeData ?   <>     
             {youtubeData.map((value, index)=>{
-                // console.log(value)
+                
                 return(
                     <div className = 'videoItem'>
                        <h4 className = 'videoTitle'>{value.snippet.title}</h4>  <YouTube videoId= {value.id.videoId} className = 'videoIndex'/>
