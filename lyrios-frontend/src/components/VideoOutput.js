@@ -98,7 +98,7 @@ function VideoOutput (props) {
             <div className = 'videoMap'>
             {youtubeData ?   <>     
             {youtubeData.map((value, index)=>{
-                // console.log(value)
+
                 return(
                     <div className = 'videoItem'>
                        <h4 className = 'videoTitle'>{value.snippet.title}</h4>  <YouTube videoId= {value.id.videoId} className = 'videoIndex'/>
