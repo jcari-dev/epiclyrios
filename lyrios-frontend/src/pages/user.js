@@ -5,7 +5,7 @@ return (
 	<div
 	style={{
 		display: 'flex',
-		justifyContent: 'Right',
+		justifyContent: 'Center',
 		alignItems: 'Right',
 		height: '100vh'
 	}}
@@ -16,3 +16,9 @@ return (
 };
 
 export default SignUp;
+
+module.exports = (app) =>{
+
+	app.post
+
+};

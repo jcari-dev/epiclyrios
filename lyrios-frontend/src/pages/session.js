@@ -5,7 +5,7 @@ return (
 	<div
 	style={{
 		display: 'flex',
-		justifyContent: 'Right',
+		justifyContent: 'Center',
 		alignItems: 'Right',
 		height: '100vh'
 	}}
