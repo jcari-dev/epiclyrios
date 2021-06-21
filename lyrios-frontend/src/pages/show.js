@@ -8,7 +8,7 @@ return (
 		display: 'flex',
 		justifyContent: 'Center',
 		alignItems: 'Right',
-		height: '100vh'
+		height: '10vh'
 	}}
 	>
 	<h1>Personal Video PlayList</h1>
