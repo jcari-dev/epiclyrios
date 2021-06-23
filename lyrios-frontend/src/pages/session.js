@@ -7,7 +7,7 @@ return (
 		display: 'flex',
 		justifyContent: 'Center',
 		alignItems: 'Right',
-		height: '50vh'
+		height: '100vh'
 	}}
 	>
 	<h1>Sign in</h1>

@@ -44,34 +44,50 @@ function VideoOutput (props) {
 
         console.log(response.data.items)
         setYoutubeData(response.data.items)
-        const title = response.data.items[randomNumber].snippet.title;
-        const stripped = title.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
-        console.log(stripped)
+        // const title = response.data.items[randomNumber].snippet.title;
+        // const stripped = title.replace(/ *\([^)]*\) */g, "");
+        // console.log(stripped)
     
-    
-    const baseLyricsURL = "https://api.happi.dev/v1/music?";
-        const q = "q=" + stripped;
-        console.log(q)
+        }
+
+        const baseLyricsURL = "https://api.happi.dev/v1/music?";
+        
         const hasLyrics = "&lyrics=1";
         const limit = "&limit=";
         const lyricsType = "&type=";
         const apiKey = "&apikey=6d400baq5E0tR7e8ItaBRyijAyJVpD9qLDYxcli0AwBHLoMayAPtZaNr";
-        const newQ = q.split(' ').join('%20');
-        const lyricsURL = `${baseLyricsURL}${newQ}${limit}${apiKey}${lyricsType}${hasLyrics}`;
-        console.log(lyricsURL)
+        // const newQ = lyricsQ.split(' ').join('%20');
+        // console.log(newQ)
+        let title = "";
+        let lyricsURL = `${baseLyricsURL}${title}${limit}${apiKey}${lyricsType}${hasLyrics}`;
+        const lyricsQ = (searchTerm) => {
+            const newQ = "q=" + searchTerm.replace(/ *\([^)]*\) */g, "").split(' ').join('%20');
+            console.log(newQ)
+            title = newQ;
+            console.log(title)
+            lyricsURL = `${baseLyricsURL}${title}${limit}${apiKey}${lyricsType}${hasLyrics}`;
+            console.log(lyricsURL)
+        }
+        
             //function to make api call
             const getData = async (searchTerm) => {
                 // console.log(URL)
                 //make the call to get a response
+                try {
                 const response = await Axios.get(
                     lyricsURL
                 )
+                console.log(response.data)
                 //set lyrics state to response
-                console.log(response.data.result[0].api_lyrics)
+                // console.log(response.data.result[0].api_lyrics)
+                
                 getLyricsData(response.data.result[0].api_lyrics)
+            } catch (error) {
+                console.log('no lyrics found')
+            }
                 return 'response'
                 }
-                
+                // getData()
             
             const getLyricsData = async (data) => {
                 const response = await Axios.get(
@@ -80,7 +96,7 @@ function VideoOutput (props) {
                 console.log(response.data.result.lyrics)
                 setLyricsData(response.data.result.lyrics)
                 return 'response'
-            }
+            
         }
         // randomVideo
       React.useEffect(()=>{
@@ -96,6 +112,13 @@ function VideoOutput (props) {
     // const songIndex = artist[randomNumber]
     // console.log(songIndex)
     // console.log(youtubeData[randomNumber].snippet.title)
+    const newPost = (test) => {
+        return (
+        console.log(test)
+        )
+    }
+   
+    
     return(
         <div>
             {/* <h2>{youtubeData ? <>  {youtubeData.items[0].snippet.title}  <YouTube videoId= {youtubeData.items[0].id.videoId} /> </> : 'No YouTube data was gathered'}</h2> */}
@@ -107,7 +130,8 @@ function VideoOutput (props) {
             <div className = 'videoMap'>
             {youtubeData ?   <>     
             {youtubeData.map((value, index)=>{
-                
+                newPost(value.snippet.title)
+                getData(lyricsQ(value.snippet.title))
                 return(
                     <div className = 'videoItem'>
                        <h4 className = 'videoTitle'>{value.snippet.title}</h4>  <YouTube videoId= {value.id.videoId} className = 'videoIndex'/>

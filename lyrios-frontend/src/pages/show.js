@@ -1,4 +1,3 @@
-  
 import React from 'react';
 
 const PlayList = () => {
@@ -8,7 +7,7 @@ return (
 		display: 'flex',
 		justifyContent: 'Center',
 		alignItems: 'Right',
-		height: '10vh'
+		height: '100vh'
 	}}
 	>
 	<h1>Personal Video PlayList</h1>
