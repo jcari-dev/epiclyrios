@@ -7,7 +7,6 @@ import Home from './pages';
 import Session from './pages/session';
 import Show from './pages/show';
 import User from './pages/user';
-import Search from './pages/search';
 import Lyrics from './components/Lyrics'
 
 function App() {
@@ -19,16 +18,16 @@ function App() {
         <Navbar />
 
         <Switch>
-          <Route path='/' exact component={Home} />
+          <Route path='/' component={Home}/>
           <Route path='/session' component={Session} />
           <Route path='/show' component={Show} />
           <Route path='/user' component={User} />
-          <Route path='/search' component={Search}/>
+
           {/* <Route path='/team' component={Teams} />
           <Route path='/blogs' component={Blogs} />
           <Route path='/sign-up' component={SignUp} /> */}
         </Switch>
-        {/* <Search/> */}
+
         <Lyrics/>
       </Router>
 
