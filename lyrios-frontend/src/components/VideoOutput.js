@@ -33,10 +33,6 @@ function VideoOutput (props) {
     }
 
     const randomVideo = async (searchTerm) => {
-        // const artist = ['beyonce','sza','ariana grande','jay-z','rihanna','cold play','snoop dogg','bruno mars','marc anthony','bad bunny','incubus',
-        // 'a boggie wit da hoodie','tiesto','billy joel','john mayer','el alfa','omega','celia cruz','cardi b','miguel','leon bridges']
-        // const random = Math.round(Math.random()*artist.length)
-        // const randomArtist = artist[random]
         console.log(randomArtist)
         const response = await Axios.get(
             `${baseURL}${search}${maxResult}${type}${key}${topicId}&q=${randomArtist}`
