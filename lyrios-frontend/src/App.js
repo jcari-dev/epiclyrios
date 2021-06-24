@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css';
 import Navbar from './components/NavBarElements';
@@ -10,6 +9,7 @@ import User from './pages/user';
 import Lyrics from './components/Lyrics'
 import ShowTest from './pages/showTest'
 
+
 function App() {
 
   return (
@@ -18,27 +18,59 @@ function App() {
 
         <Navbar />
         <Switch>
-          <Route path='/session'>
-            <Session/>
-          </Route>
-          <Route path='/show'>
-            <Show/>
-          </Route>
-          <Route path='/user'>
-            <User/>
-          </Route>
-          <Route path='/showtest'>
-            <ShowTest/>
-          </Route>
-          <Route path='/'>
-            <Home/>
-          </Route>
+          <Route path='/' exact component={Home} />
+          <Route path='/session' component={Session} />
+          <Route path='/show' component={Show} />
+          <Route path='/user' component={User} />
+          <Route path='/search' component={Search}/>
+          {/* <Route path='/team' component={Teams} />
+          <Route path='/blogs' component={Blogs} />
+          <Route path='/sign-up' component={SignUp} /> */}
         </Switch>
-
-
+        </Router>
+        <VideoOutput />
 
     </div>
   );
-}
+        }
+// function App() {
+// return (
+// 	<Router>
+// 	<Navbar />
+// 	<Switch>
+// 		<Route path='/' exact component={Home} />
+// 		<Route path='/session' component={Session} />
+// 		<Route path='/show' component={Show} />
+// 		<Route path='/user' component={User} />
+// 		{/* <Route path='/team' component={Teams} />
+// 		<Route path='/blogs' component={Blogs} />
+// 		<Route path='/sign-up' component={SignUp} /> */}
+// 	</Switch>
+// 	</Router>
+// );
+// }
 
 export default App;
+
+  // return (
+
+
+  //   <div className="App">
+  //     <h1>Lets get started with the Lyrios App!</h1>
+  //     <header className="App-header">
+  //       <img src={logo} className="App-logo" alt="logo" />
+  //       <p>
+  //         Edit <code>src/App.js</code> and save to reload.
+  //       </p>
+  //       <a
+  //         className="App-link"
+  //         href="https://reactjs.org"
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //       >
+  //         Learn React
+  //       </a>
+  //     </header>
+  //   </div>
+  // );
+

@@ -1,9 +1,25 @@
 import React from 'react';
-import Axios from 'axios'
-import YouTube from 'react-youtube'
-import SearchBar from '../components/SearchBar'
-import SearchOutput from '../components/SearchOutput'
-import '../index.css';
+
+
+const Home = () => {
+return (
+	<div
+	// style={{
+	// 	display: 'flex',
+	// 	justifyContent: 'Center',
+	// 	alignItems: 'Right',
+	// 	height: '100vh'
+	// }}
+	>
+	  <div>
+	     <h1>Welcome to Lyrios</h1>
+         <h3> A true music experience</h3>
+	  </div>
+	</div>
+  );
+};
+
+export default Home;
 
 
 
@@ -118,3 +134,4 @@ const apiLyricsKey = "&apikey=6d400baq5E0tR7e8ItaBRyijAyJVpD9qLDYxcli0AwBHLoMayA
 }
 
 export default GetSearch
+
