@@ -1,27 +1,6 @@
 import React from 'react';
 
 
-const Home = () => {
-return (
-	<div
-	// style={{
-	// 	display: 'flex',
-	// 	justifyContent: 'Center',
-	// 	alignItems: 'Right',
-	// 	height: '100vh'
-	// }}
-	>
-	  <div>
-	     <h1>Welcome to Lyrios</h1>
-         <h3> A true music experience</h3>
-	  </div>
-	</div>
-  );
-};
-
-export default Home;
-
-
 
 function GetSearch () {
 	console.log(localStorage.getItem('SessionEmail'))
@@ -136,4 +115,3 @@ const apiLyricsKey = "&apikey=6d400baq5E0tR7e8ItaBRyijAyJVpD9qLDYxcli0AwBHLoMayA
 }
 
 export default GetSearch
-

@@ -6,7 +6,6 @@ import Home from './pages/index';
 import Session from './pages/session';
 import Show from './pages/show';
 import User from './pages/user';
-import Lyrics from './components/Lyrics'
 import ShowTest from './pages/showTest'
 
 
@@ -18,17 +17,24 @@ function App() {
 
         <Navbar />
         <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/session' component={Session} />
-          <Route path='/show' component={Show} />
-          <Route path='/user' component={User} />
-          <Route path='/search' component={Search}/>
-          {/* <Route path='/team' component={Teams} />
-          <Route path='/blogs' component={Blogs} />
-          <Route path='/sign-up' component={SignUp} /> */}
+          <Route path='/session'>
+            <Session/>
+          </Route>
+          <Route path='/show'>
+            <Show/>
+          </Route>
+          <Route path='/user'>
+            <User/>
+          </Route>
+          <Route path='/showtest'>
+            <ShowTest/>
+          </Route>
+          <Route path='/'>
+            <Home/>
+          </Route>
         </Switch>
-        </Router>
-        <VideoOutput />
+
+
 
     </div>
   );

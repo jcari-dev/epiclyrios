@@ -4,6 +4,17 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users.js');
 
+const index = require('../src/pages/index.js')
+
+const app = express();
+
+app.use(cors())
+
+//home route test
+router.get('/', (req, res) => {
+    res.json(index)
+    console.log('hello world')
+})
 //index home page
 router.get('/', (req, res) => {
     User.find({}, (err, foundUsers) => {
@@ -15,10 +26,7 @@ router.get('/', (req, res) => {
     }
     )})
 
-//user sign in
-router.get('/signin', (req, res) => {
-    res.render('pages/sessions.js')
-})
+
 //new user - render new user page
 router.get('/new', (req, res) => {
     res.render('users/new.js')
