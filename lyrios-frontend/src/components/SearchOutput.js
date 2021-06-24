@@ -3,16 +3,28 @@ import YouTube from 'react-youtube'
 
 
 
-
-const SearchOutput = (youtubeData) => {
-    console.log(youtubeData)
+const SearchOutput = (data) => {
+    console.log(data.youtubeData)
+    console.log(data.youtubeData.items[0].snippet.title)
+    console.log(data.lyricsData)
+    // console.log(lyricsData)
     return(
        <div>
             
             {/* <YouTube videoId= {youtubeData.results.items[0].id.videoId} /> */}
-            <div className = 'videoMap'>
-            {youtubeData ?   <>     
-            {youtubeData.results.items.map((value, index)=>{
+            <div className = 'videoItem'>
+            <div>{data.youtubeData ? <><h4 className ="videoTitle">{data.youtubeData.items[0].snippet.title}</h4>  <YouTube videoId= {data.youtubeData.items[0].id.videoId}/> </> :
+            'No YouTube data was gathered'}
+           
+            </div>
+            <br/>
+            
+            {data.lyricsData ?  <button className = "button is-info" lyricsId={data.lyricsData}>Save to My Playlist</button> : ''}    
+            <div>{data.lyricsData ? <> 
+            <p className = "lyrics">{data.lyricsData.result.lyrics}</p>
+            </>: 'No Lyrics Data Was Found'}</div>
+            {/* {youtubeData ?   <>     
+            {youtubeData.results.item.map((value, index)=>{
                 console.log(value)
                 return(
                     <div className = 'videoItem'>
@@ -22,7 +34,8 @@ const SearchOutput = (youtubeData) => {
                 )
 
             })}</> : <p>Please submit a search request.</p>
-            }  
+            }   */}
+
             </div> 
         </div>
       
