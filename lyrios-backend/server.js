@@ -8,8 +8,14 @@ const router = express.Router();
 const app = express();
 app.use(cors());
 
-// const routeController = require('./controllers/routes.js');
-// app.use('/', routeController)
+//controllers
+const sessionController = require('./controllers/routes.js');
+app.use('/session', sessionController);
+const showController = require('./controllers/show');
+app.use('/show', showController);
+const userController = require('./controllers/user');
+app.use('/user', userController);
+
 
 app.get('/', (req, res) => {
     res.send('hello world')
