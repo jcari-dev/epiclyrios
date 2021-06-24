@@ -2,34 +2,39 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/NavBarElements';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages';
+import { Route, Switch } from 'react-router-dom';
+import Home from './pages/index';
 import Session from './pages/session';
 import Show from './pages/show';
 import User from './pages/user';
 import Lyrics from './components/Lyrics'
+import ShowTest from './pages/showTest'
 
 function App() {
 
   return (
     <div className="App">
       <h1>Lets get started with the Lyrios App!</h1>
-      <Router>
+
         <Navbar />
-
         <Switch>
-          <Route path='/' component={Home}/>
-          <Route path='/session' component={Session} />
-          <Route path='/show' component={Show} />
-          <Route path='/user' component={User} />
-
-          {/* <Route path='/team' component={Teams} />
-          <Route path='/blogs' component={Blogs} />
-          <Route path='/sign-up' component={SignUp} /> */}
+          <Route path='/session'>
+            <Session/>
+          </Route>
+          <Route path='/show'>
+            <Show/>
+          </Route>
+          <Route path='/user'>
+            <User/>
+          </Route>
+          <Route path='/showtest'>
+            <ShowTest/>
+          </Route>
+          <Route path='/'>
+            <Home/>
+          </Route>
         </Switch>
 
-        <Lyrics/>
-      </Router>
 
 
     </div>
