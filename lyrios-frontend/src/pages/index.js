@@ -24,6 +24,8 @@ export default Home;
 
 
 function GetSearch () {
+	console.log(localStorage.getItem('SessionEmail'))
+    
 //YouTubeAPI Call
     const baseURL = 'https://www.googleapis.com/youtube/v3';
     const search = '/search?part=snippet';
