@@ -32,8 +32,15 @@ code {
   max-width: 400px;
 }
 .videoItem{
-  margin: 10px;
-  max-width: 30%;
+  margin: 0 auto;
+  max-width: 95%;
+  text-align: center;
+}
+.lyrics{
+  padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 50%;
 }
 .videoIndex{
   height: 50%;
