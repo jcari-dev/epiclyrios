@@ -1,7 +1,8 @@
 import { FaBars } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import Signin from './SignIn'
+import Logout from './Logout'
 const Nav = styled.nav`
 // background: #6B6B6B;
 background: black;
@@ -80,25 +81,36 @@ margin-left: 24px;
 const Navbar = () => {
     return (
         <>
+         {/* <Nav>
+            <ul >
+
+
+
+            {localStorage.getItem('SessionEmail') === null ? <li><Signin/></li> : ''}
+
+            {localStorage.getItem('SessionEmail') !== null ? <li><Logout/></li> : ''}
+            </ul>
+        </Nav> */}
         <Nav>
             <Bars />
             <NavMenu>
                 <NavLink to='/' activeStyle>
                     <img src="https://i.ibb.co/0jsWS9h/Screen-Shot-2021-06-14-at-10-31-13-PM-removebg-preview.png" class="img-fluid" />
                 </NavLink>
-                <NavLink to='/session' activeStyle>
-                Sign In
-                </NavLink>
                 <NavLink to='/show' activeStyle>
                 View Your Favorite Videos
                 </NavLink>
-                <NavLink to='/user' activeStyle>
-                Sign Up
-                </NavLink>
+            
+            {localStorage.getItem('SessionEmail') == null ? 
+             	// console.log(localStorage.getItem('SessionEmail'))            
+                <NavBtn>
+                    <NavBtnLink to='/session'>Sign In / SignOut</NavBtnLink>
+                </NavBtn> :
+                  <NavBtn>
+                    <NavBtnLink to='/session'>Sign In / Sign Out</NavBtnLink>
+                </NavBtn>
+            } 
             </NavMenu>
-            <NavBtn>
-                <NavBtnLink to='/session'>Sign In</NavBtnLink>
-            </NavBtn>
         </Nav>
         </>
       );

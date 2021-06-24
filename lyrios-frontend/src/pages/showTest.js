@@ -32,32 +32,48 @@ const limit = "&limit=";
 const lyricsType = "&type=";
 const apiLyricsKey = "&apikey=6d400baq5E0tR7e8ItaBRyijAyJVpD9qLDYxcli0AwBHLoMayAPtZaNr";   
 
-
+const lyricsArrayNew = []
     
     const getLyricsData = async (data) => {
         // console.log(data)
         const response = await Axios.get(
             data + '?' + apiLyricsKey
         )
+        // return console.log(response.data)
         console.log(response.data)
+       if(!lyricsArrayNew.includes(response.data)) lyricsArrayNew.push(response.data)
         // console.log(response.data.result.lyrics)
         // console.log(response.data.result.track + ' ' + response.data.result.artist )
-        setLyricsData(response.data) //
+        // setLyricsData(response.data) //
         // getYoutubeData(response.data.result.track + ' ' + response.data.result.artist)
     }
 
     const getArray = (data) => {
 
-    for (let i = 0; i < data.length; i++){
-        console.log(data[i])
-         getLyricsData(data[i])
-    }
+        for (let i = 0; i < data.length; i++){
+            console.log(data[i])
+            getLyricsData(data[i])
+            
+        }
+        console.log(lyricsArrayNew)
+        return(
+            <h1>Hello</h1>
+        )
     }
     
 return (
 	<div>
 	<h1>Personal Video PlayList</h1>
     <div>{getArray(lyricsArray)}</div>
+    <div>  
+    {lyricsArrayNew.map((value,index)=>{
+        return(
+        <p>test</p>
+        )
+
+    })}
+    </div>
+
      {/* {lyricsArray.map((value, index)=>{
         console.log(value)
         getLyricsData(value)
