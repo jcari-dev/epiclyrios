@@ -1,4 +1,7 @@
 import React from 'react';
+import Axios from 'axios';
+import SearchBar from '../components/SearchBar';
+import SearchOutput from '../components/SearchOutput';
 
 
 
@@ -94,7 +97,7 @@ const apiLyricsKey = "&apikey=6d400baq5E0tR7e8ItaBRyijAyJVpD9qLDYxcli0AwBHLoMayA
         <div>
         <br/>
             <div className = "indexTop">
-                <h1 className = "Heading">Welcome to Lyrios</h1>
+                <h1 className = "heading">Welcome to Lyrios</h1>
                 <h3>A True Music Experience. Submit Your Song Search Below</h3>
             </div>
             <SearchBar songSearch={getLyricsArray}/>

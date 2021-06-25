@@ -7,9 +7,11 @@ const URI = process.env.MONGODB_URI;
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const app = express();
+const connectDB = require('./config/db');
 
 require('dotenv').config();
-let bodyParser = require('body-parser')
+let bodyParser = require('body-parser');
+connectDB();
 // const client = new MongoClient(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 // MongoClient.connect(err => {
 //   const collection = MongoClient.db("test").collection("devices");
@@ -32,15 +34,15 @@ router.use('/show', showController);
 const userController = require('./controllers/user');
 router.use('/user', userController);
 
-
+const index = require('././pages/index.js')
 app.get('/', (req, res) => {
-    res.send('hello world')
+    res.send(index)
 })
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 });
-mongoose.connect('mongodb://localhost:27017/lyriosDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(URI || 'mongodb://localhost:27017/lyriosDB', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log('connected to mongo')
 })

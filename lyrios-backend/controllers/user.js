@@ -9,7 +9,7 @@ router.get('/user', (req, res) => {
     res.render('./pages/user.js')
 })
 //create new user
-router.post ('/', (req, res) => {
+router.post('/user', (req, res) => {
     User.create(req.body, (error, createdUser) => {
         res.redirect('/')
     })
