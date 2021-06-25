@@ -6,7 +6,7 @@ import Home from './pages/index';
 import Session from './pages/session';
 import Show from './pages/show';
 import User from './pages/user';
-import ShowTest from './pages/showTest'
+
 
 
 function App() {
@@ -25,9 +25,6 @@ function App() {
           </Route>
           <Route path='/user'>
             <User/>
-          </Route>
-          <Route path='/showtest'>
-            <ShowTest/>
           </Route>
           <Route path='/'>
             <Home/>

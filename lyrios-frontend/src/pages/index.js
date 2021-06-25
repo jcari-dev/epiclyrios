@@ -1,5 +1,9 @@
-import React from 'react';
-
+import React, {useState, useEffect} from 'react';
+import Axios from 'axios'
+import YouTube from 'react-youtube'
+import SearchBar from '../components/SearchBar'
+import SearchOutput from '../components/SearchOutput'
+import '../index.css';  
 
 
 function GetSearch () {
@@ -55,7 +59,10 @@ const baseLyricsURL = "https://api.happi.dev/v1/music?";
 const hasLyrics = "&lyrics=1";
 const limit = "&limit=";
 const lyricsType = "&type=";
-const apiLyricsKey = "&apikey=6d400baq5E0tR7e8ItaBRyijAyJVpD9qLDYxcli0AwBHLoMayAPtZaNr";   
+//api key 1
+// const apiLyricsKey = "&apikey=6d400baq5E0tR7e8ItaBRyijAyJVpD9qLDYxcli0AwBHLoMayAPtZaNr";   
+//api key 2
+const apiLyricsKey = "&apikey=78e089Xdo4n4bW6uzrz5HaYLJ3E801KK7uQ0LQlJFsZ7ROy1mr0ZDyjR";    
 
     const getLyricsArray = async (searchTerm) => {
         try{

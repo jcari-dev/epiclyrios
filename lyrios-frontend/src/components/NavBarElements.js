@@ -97,10 +97,13 @@ const Navbar = () => {
                 <NavLink to='/' activeStyle>
                     <img src="https://i.ibb.co/0jsWS9h/Screen-Shot-2021-06-14-at-10-31-13-PM-removebg-preview.png" class="img-fluid" />
                 </NavLink>
-                <NavLink to='/show' activeStyle>
-                View Your Favorite Videos
+                <NavLink to='/' activeStyle>
+                Home
                 </NavLink>
-            
+                <NavLink to='/show' activeStyle>
+                View Your Favorite Video
+                </NavLink>
+
             {localStorage.getItem('SessionEmail') == null ? 
              	// console.log(localStorage.getItem('SessionEmail'))            
                 <NavBtn>
