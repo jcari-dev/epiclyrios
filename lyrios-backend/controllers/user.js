@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/users.js');
 const app = express();
 
-app.use(cors())
+// app.use(cors())
 //get new user page
 router.get('/user', (req, res) => {
     res.render('./pages/user.js')
