@@ -18,6 +18,7 @@
     "mongoose": "^5.12.13",
     "node": "^16.3.0",
     "nodemon": "^2.0.7",
+    "package.json": "^2.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
