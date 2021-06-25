@@ -3,7 +3,7 @@ import YouTube from 'react-youtube'
 
 
 
-const SearchOutput = (data) => {
+const UserOutput = (data) => {
     console.log(data.youtubeData)
     console.log(data.youtubeData.items[0].snippet.title)
     console.log(data.lyricsData)
@@ -19,8 +19,10 @@ const SearchOutput = (data) => {
             </div>
             <br/>
             
-            {data.lyricsData ?  <button className = "button is-info" lyricsId={data.lyricsData.result.track + ' ' + data.lyricsData.result.artist}>Save to My Playlist</button> : ''}    
+            {data.lyricsData ? <> <a href = '/'><button className = "button is-info" >Edit Song</button></a> <button className = "button is-danger" >Delete Song</button></>: ''}    
             <div>{data.lyricsData ? <> 
+            <br/>
+            <h2 className = 'bold'>To edit your favorite song simply click edit to search for a new favorite tune!</h2>
             <p className = "lyrics">{data.lyricsData.result.lyrics}</p>
             </>: 'No Lyrics Data Was Found'}</div>
             {/* {youtubeData ?   <>     
@@ -44,4 +46,4 @@ const SearchOutput = (data) => {
 }
 
 
-export default SearchOutput
+export default UserOutput
