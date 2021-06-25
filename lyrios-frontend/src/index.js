@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-<<<<<<< HEAD
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -12,14 +11,6 @@ ReactDOM.render(
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
-=======
-
-ReactDOM.render(
-<React.StrictMode>
-	<App />
-</React.StrictMode>,
-document.getElementById('root')
->>>>>>> 8b4bc2a3a3f969348e8cc6c20b61b42cef1c5b81
 );
 
 
