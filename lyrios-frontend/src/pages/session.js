@@ -12,6 +12,7 @@ const Signin = () => {
 		console.log(response);
 		console.log(response.profileObj)
 		localStorage.setItem('SessionEmail', response.profileObj.email)
+		localStorage.setItem('SessionName', response.profileObj.name)
 		history.push('/show')
 
 	}
