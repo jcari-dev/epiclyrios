@@ -8,6 +8,25 @@ const SearchOutput = (data) => {
     console.log(data.youtubeData.items[0].snippet.title)
     console.log(data.lyricsData)
     // console.log(lyricsData)
+    let addtofav = () => {
+        
+        fetch('http://localhost:4000/favsong', {
+        method: "post",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        //make sure to serialize your JSON body
+        body: JSON.stringify({
+          email: localStorage.getItem('SessionEmail'),
+          name: localStorage.getItem('SessionName'),
+          favsong: data.lyricsData.result.track + ' ' + data.lyricsData.result.artist
+        }),
+      });
+    }
+
+
+
     return(
        <div>
             
@@ -19,7 +38,7 @@ const SearchOutput = (data) => {
             </div>
             <br/>
             
-            {data.lyricsData ?  <button className = "button is-info" lyricsId={data.lyricsData.result.track + ' ' + data.lyricsData.result.artist}>Save to My Playlist</button> : ''}    
+            {data.lyricsData ?  <button onClick={addtofav} className = "button is-info" >Save to My Playlist</button> : ''}    
             <div>{data.lyricsData ? <> 
             <p className = "lyrics">{data.lyricsData.result.lyrics}</p>
             </>: 'No Lyrics Data Was Found'}</div>
@@ -35,7 +54,7 @@ const SearchOutput = (data) => {
 
             })}</> : <p>Please submit a search request.</p>
             }   */}
-
+                
             </div> 
         </div>
       

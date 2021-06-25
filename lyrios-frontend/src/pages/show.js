@@ -5,6 +5,18 @@ import UserOutput from '../components/UserOutput';
 import '../index.css';  
 
 function ShowFavVideo () {
+    let getinfo = async() => {
+
+
+        let response =  await fetch('http://localhost:4000/favsong')
+
+        let data = await response.json();
+
+        return console.log(data)
+        
+
+    }
+    
     // const lyricsArray = [
     //     "https://api.happi.dev/v1/music/artists/4862/albums/153808/tracks/13227248/lyrics",
     //     "https://api.happi.dev/v1/music/artists/5130/albums/57340/tracks/13202642/lyrics",
@@ -21,9 +33,9 @@ const maxResult = '&maxResults=1';
 const keyWord = '&q=rihanna';
 const type = '&type=video';
 //API Key 1
-const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
+// const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
 // API Key 2
-// const key = '&key=AIzaSyAjtiGq13vuyxMjQfPS7Ngj0Mny-7ol3GM'
+const key = '&key=AIzaSyAjtiGq13vuyxMjQfPS7Ngj0Mny-7ol3GM'
 //API Key 3
 // const key = '&key=AIzaSyAlEKircfin7Ratd0qMcJT50yknQLgk67c';
 const topicId = '&topicId=04rlf';
@@ -211,7 +223,7 @@ return (
         )
 
     })} */}
-
+    <button onClick={getinfo}>test</button>
 	</div>
 )
 };

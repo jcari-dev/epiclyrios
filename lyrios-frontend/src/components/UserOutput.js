@@ -4,6 +4,11 @@ import YouTube from 'react-youtube'
 
 
 const UserOutput = (data) => {
+
+
+
+
+
     console.log(data.youtubeData)
     console.log(data.youtubeData.items[0].snippet.title)
     console.log(data.lyricsData)

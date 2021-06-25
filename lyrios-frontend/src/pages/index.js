@@ -16,9 +16,9 @@ function GetSearch () {
     const keyWord = '&q=rihanna';
     const type = '&type=video';
     //API Key 1
-    const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
+    // const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
     // API Key 2
-    // const key = '&key=AIzaSyAjtiGq13vuyxMjQfPS7Ngj0Mny-7ol3GM'
+    const key = '&key=AIzaSyAjtiGq13vuyxMjQfPS7Ngj0Mny-7ol3GM'
     //API Key 3
     // const key = '&key=AIzaSyAlEKircfin7Ratd0qMcJT50yknQLgk67c';
     const topicId = '&topicId=04rlf';
@@ -103,7 +103,7 @@ const apiLyricsKey = "&apikey=78e089Xdo4n4bW6uzrz5HaYLJ3E801KK7uQ0LQlJFsZ7ROy1mr
         <div>
         <br/>
             <div className = "indexTop">
-                <h1 className = "Heading">Welcome to Lyrios</h1>
+                <h1 className = "heading">Welcome to Lyrios</h1>
                 <h3>A True Music Experience. Submit Your Song Search Below</h3>
             </div>
             <SearchBar songSearch={getLyricsArray}/>
