@@ -5,17 +5,21 @@ import UserOutput from '../components/UserOutput';
 import '../index.css';  
 
 function ShowFavVideo () {
+    const [infoArray, setInfoArray] = React.useState(null)
     let getinfo = async() => {
 
 
         let response =  await fetch('http://localhost:4000/favsong')
 
         let data = await response.json();
-
+        setInfoArray(data)
+        getLyricsArray(data)
         return console.log(data)
-        
+
 
     }
+
+
     
     // const lyricsArray = [
     //     "https://api.happi.dev/v1/music/artists/4862/albums/153808/tracks/13227248/lyrics",
@@ -24,7 +28,7 @@ function ShowFavVideo () {
     //     "https://api.happi.dev/v1/music/artists/2807/albums/219362/tracks/3452831/lyrics",
     //     "https://api.happi.dev/v1/music/artists/5472/albums/32903/tracks/546400/lyrics"
     // ]
-    // const newLink = "https://api.happi.dev/v1/music/artists/4862/albums/153808/tracks/13227248/lyrics"
+
 const songtest = 'Tu Amor Me Hace Bien Marc Anthony'
 //YouTube API
 const baseURL = 'https://www.googleapis.com/youtube/v3';
@@ -32,10 +36,10 @@ const search = '/search?part=snippet';
 const maxResult = '&maxResults=1';
 const keyWord = '&q=rihanna';
 const type = '&type=video';
-//API Key 1
-// const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
-// API Key 2
-const key = '&key=AIzaSyAjtiGq13vuyxMjQfPS7Ngj0Mny-7ol3GM'
+// API Key 1
+const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
+// // API Key 2
+// const key = '&key=AIzaSyAjtiGq13vuyxMjQfPS7Ngj0Mny-7ol3GM'
 //API Key 3
 // const key = '&key=AIzaSyAlEKircfin7Ratd0qMcJT50yknQLgk67c';
 const topicId = '&topicId=04rlf';
@@ -71,7 +75,7 @@ const lyricsArrayNew = ['That La, La, La Rihanna','Across The Room ODESZA']
         if(searchTerm !== undefined){
         try{
         const response = await Axios.get(
-        `${baseLyricsURL}${limit}${apiLyricsKey}${lyricsType}${hasLyrics}&q=${searchTerm}`
+        `${baseLyricsURL}${limit}${apiLyricsKey}${lyricsType}${hasLyrics}&q=${searchTerm[0].favoriteSong}`
         )
         console.log(searchTerm)
         console.log(response.data)
@@ -92,90 +96,84 @@ const lyricsArrayNew = ['That La, La, La Rihanna','Across The Room ODESZA']
         }
         } else setShowLyricsData(null)
     }
-////Test Data, ask Bryan for help on Sunday if he is available
-    // const getLyricsData = async (data) => {
-    //     console.log(data)
-    //     const response = await Axios.get(
-    //         data + '?' + apiLyricsKey
-    //     )
-    //     console.log(response.data)
-    //     console.log(response.data.result.lyrics)
-    //     console.log(response.data.result.track + ' ' + response.data.result.artist )
-    //     setLyricsData(response.data)
-    //     // getYoutubeData(response.data.result.track + ' ' + response.data.result.artist)
-    // }
-    // for(let i = 0; i < lyricsArrayNew.length; i ++){
-    //     getLyricsArray(lyricsArrayNew[i])
-    // }
 
-    // lyricsArrayNew.map((value,index)=>{
-        
-    //     console.log(lyricsData)
-    //     return(
-    //         <div>
-    //         {getLyricsArray(value)}
-    //         <h1>hi</h1>
-    //         </div>
-    //     //    <h1>{lyricsData ? lyricsData.result.lyrics : '' }</h1>
-
-    //         //            <div>{data.lyricsData ? <> 
-    //         // <p className = "lyrics">{data.lyricsData.result.lyrics}</p>
-    //         // </>: 'No Lyrics Data Was Found'}</div>
-    //     )
- 
-    // })
     React.useEffect(()=>{
-        getLyricsArray(songtest)
+
+        getinfo()
+        // getLyricsArray(getInfoArray[0].favoriteSong)
+
         // randomVideo(randomArtist)
         console.log('running use effect')
     },[])
-    // const asyncfunction = async (data) => {
-    //     const testData = async (search) => {
-    //     const response = await Axios.get(
-    //                 search + '?' + apiLyricsKey
-    //     )
-    //     console.log(response.data)
-    //     if(!lyricsArrayNew.includes(response.data)) await lyricsArrayNew.push(response.data)
-    //         // console.log(console)
-    //         setLyricsData(response.data) 
-    //     }
-    //     const datacall = await data.map((value, index)=>{
-    //     console.log(value)
-            
-    //     testData(value)
-        
-
-    //     })
-    //     console.log(datacall)
-    //     // datacall
-    //     // const array = await 
-    //     console.log(lyricsArrayNew)
-
-    // }
-
-    // asyncfunction(lyricsArray)
-    // console.log(lyricsArrayNew)
-
+// Post MVP - Be able to push a playlist as opposed to only one video (hungry for more)
     // const getLyricsData = async (data) => {
     //     // console.log(data)
 
     //     const response = await Axios.get(
     //         data + '?' + apiLyricsKey
     //     )
-    //     // return console.log(response.data)
-    //     console.log(response.data)
+    //     const responses = await Promise.all(lyricsArray.map( async (value,index)=>{
+    //         return await Axios.get(
+    //             value + '?' + apiLyricsKey
+    //         )
+    //     }))
+    //     const responseElements = responses.map((value, index)=>{
+    //         return (
+    //             <>
+    //             <p className = "lyrics">{value.data.result.lyrics}</p>
+    //             <hr></hr>
+    //             </>
+    //         )
+    //     })
+
+    //     console.log(responses)
+    //         // getYoutubeData(response.data.result.track + ' ' + response.data.result.artist)
+    //     const YouTuberesponses = await Promise.all(responses.map( async (value,index)=>{
+    //         const searchTerm = value.data.result.track + ' ' + value.data.result.artist
+    //         return await Axios.get(
+    //         `${baseURL}${search}${maxResult}${type}${key}${topicId}&q=${searchTerm}`
+    //         )
+    //     }))
+    //     console.log(YouTuberesponses)
+    //     const YouTubeElements = YouTuberesponses.map((value, index)=> {
+    //         return (
+    //             <>
+    //             <h4 className ="videoTitle">{value.data.items[0].snippet.title}</h4>  
+    //             <YouTube videoId= {value.data.items[0].id.videoId}/> 
+    //             </>
+    //         )
+    //     })
+    //     const dataArray = []
+    //     YouTubeElements.forEach((element,index) => {
+    //         dataArray.push(YouTubeElements[index])
+    //         dataArray.push(responseElements[index])
+    //     });
+    //     console.log(dataArray)
+    //     setShowLyricsData(dataArray)
+        // setShowYoutubeData(YouTubeElements)
+        // console.log(showlyricsData)
+
+        // return console.log(response.data)
+    // console.log(response.data)
     //    if(!lyricsArrayNew.includes(response.data)) await lyricsArrayNew.push(response.data)
        
-    //     // console.log(response.data.result.lyrics)
-    //     // console.log(response.data.result.track + ' ' + response.data.result.artist )
-    //     setLyricsData(response.data) //
-    //     // getYoutubeData(response.data.result.track + ' ' + response.data.result.artist)
+        // console.log(response.data.result.lyrics)
+        // console.log(response.data.result.track + ' ' + response.data.result.artist )
+        // setShowLyricsData(response.data) //
+        // getYoutubeData(response.data.result.track + ' ' + response.data.result.artist)
     // }
+    //     React.useEffect(()=>{
+    //     getLyricsData()
+
+    //     // randomVideo(randomArtist)
+    //     console.log('running use effect')
+    // },[])
 
 
 
 
     // lyricsArray.map((value,index)=>{
+    //     console.log(value)
     //     getLyricsData(value)
     // })
     // const getArray = (data) => {
@@ -202,29 +200,24 @@ const lyricsArrayNew = ['That La, La, La Rihanna','Across The Room ODESZA']
     
 return (
 	<div>
-	<h1>Your Favorite Song Below</h1>
-    
-    {/* <div>{asyncfunction(lyricsArray)}</div> */}
-      {/* {  lyricsArrayNew ? console.log(lyricsArrayNew[0]) : ''} */}
-    <div>  
+        <br/>
+        <h1>Your Favorite Song Below</h1>
+{/* Hungry for more output */}
+        {/* <div className = 'videoMap'>
+            <div className = 'videoItem'>
+            {/* {showYoutubeData} */}
+            {/* {showlyricsData}
+            </div>
+            </div>
+            <div>  
+        </div> */} 
+{/* // Hungry for more above */}
+            {showlyricsData ?
+            <>{ showYoutubeData  && <UserOutput youtubeData={showYoutubeData} lyricsData={showlyricsData} userData={infoArray} />} </>:
+            <h3 className = 'boldUser'>Whoops, it appears you haven't signed in and picked a new favorite song! Please navigate to the home page and click add to favorites once signed in!</h3>
+            }
+            <button onClick={getinfo}>test</button>
     </div>
-    {showlyricsData ?
-    <>{ showYoutubeData  && <UserOutput youtubeData={showYoutubeData} lyricsData={showlyricsData} />} </>:
-    <h3 className = 'boldUser'>Whoops, it appears you haven't signed in and picked a new favorite song! Please navigate to the home page and click add to favorites once signed in!</h3>
-    }
-  
-     {/* {lyricsArray.map((value, index)=>{
-        console.log(value)
-        getLyricsData(value)
-        return(
-            <h1>hi</h1>
-
-            // <p>{lyricsData ? <p className="lyrics">{lyricsData.result.lyrics}</p> : 'No Lyrics Data Was Found'}</p>
-        )
-
-    })} */}
-    <button onClick={getinfo}>test</button>
-	</div>
 )
 };
 

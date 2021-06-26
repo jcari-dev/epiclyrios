@@ -8,9 +8,9 @@ const maxResult = '&maxResults=12';
 const keyWord = '&q=rihanna';
 const type = '&type=video';
 //API Key 1
-// const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
+const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
 //API Key 2
-const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A';
+// const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A';
 const topicId = '&topicId=04rlf'
 const URL = `${baseURL}${search}${maxResult}${type}${key}${topicId}${keyWord}`;
 const artist = ['beyonce','sza','ariana grande','jay-z','rihanna','cold play','snoop dogg','bruno mars','marc anthony','bad bunny','incubus',

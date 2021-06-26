@@ -37,28 +37,23 @@ const Signin = () => {
 		
 	}
 return (
-	<div className = 'sigin'>
+	<div>
 	{/* <h1>Sign in / Sign Out</h1> */}
-	<br/>
-	{localStorage.getItem('SessionEmail') === null ?
+
+	{localStorage.getItem('SessionEmail') === null ? <>
 	<GoogleLogin
 	clientId = "174189846765-j4m2iko8mnar7ic4c0p0701e5g5gosq9.apps.googleusercontent.com"
 	onSuccess={responseGoogle}
 	onFailure={responseGoogleFail}
-	/>
-	: ''
-}
-
-	{localStorage.getItem('SessionEmail') !== null ?
+	/>     ; </>
+	:
 	<GoogleLogout
 	clientId = "174189846765-j4m2iko8mnar7ic4c0p0701e5g5gosq9.apps.googleusercontent.com"
 	buttonText="Sign Out"
 	onLogoutSuccess={logoutGoogle}
-	/> 
-	: ''
-	}
-	
 
+	/> 
+	}
 	</div>
 );
 };

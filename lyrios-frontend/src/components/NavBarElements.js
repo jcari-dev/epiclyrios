@@ -3,6 +3,7 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Signin from './SignIn'
 import Logout from './Logout'
+import Session from './SignIn'
 const Nav = styled.nav`
 // background: #6B6B6B;
 background: black;
@@ -79,6 +80,10 @@ margin-left: 24px;
 `;
 
 const Navbar = () => {
+    const pageReload = () => {
+        window.location.reload()
+    }
+    	
     return (
         <>
          {/* <Nav>
@@ -103,16 +108,7 @@ const Navbar = () => {
                 <NavLink to='/show' activeStyle>
                 View Your Favorite Video
                 </NavLink>
-
-            {localStorage.getItem('SessionEmail') == null ? 
-             	// console.log(localStorage.getItem('SessionEmail'))            
-                <NavBtn>
-                    <NavBtnLink to='/session'>Sign In / SignOut</NavBtnLink>
-                </NavBtn> :
-                  <NavBtn>
-                    <NavBtnLink to='/session'>Sign In / Sign Out</NavBtnLink>
-                </NavBtn>
-            } 
+                <Session className='session' onClick={pageReload}/>
             </NavMenu>
         </Nav>
         </>
