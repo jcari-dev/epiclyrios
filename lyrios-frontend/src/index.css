@@ -19,6 +19,10 @@ code {
 .indexTop{
   margin-bottom: 20px;
 }
+.loveReason{
+    font-weight: bold;
+    font-style: italic;
+}
 .videoMap {
   display: flex;
   flex-direction: row;
