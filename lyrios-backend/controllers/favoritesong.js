@@ -20,7 +20,7 @@ router.use(express.json({
 
 
 
-
+//New Route
 router.get('/', (req, res) => {
 
     favoritesong.find({}, (error, foundfavsong) =>{
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 })
 
 
-
+//Create Route
 router.post('/', (req, res) => {
     favoritesong.create([{
         name: req.body.name,
@@ -42,6 +42,16 @@ router.post('/', (req, res) => {
     res.send('created new fav song document')
 })
 
+// Edit Route 
+router.put('/edit/:favId', async (req, res) => {
+    favoritesong.findByIdAndUpdate(req.params.favId, req.body, {new : true}, (error, getData)=>{
+   
+    })
+    // const favId = req.params.favId
+    // const updatedFavorite = await favoritesong.findByIdAndUpdate(favId)
+    // res.json({updatedFavorite})
+})
+//Delete Route
 router.delete('/:favId', async (req, res) => {
     // favoritesong.findOneAndRemove({
     //     email: req.body.email,

@@ -48,7 +48,7 @@ const UserOutput = (data) => {
             </div>
             <br/>
 
-            {data.lyricsData ? <> <a href = '/'><button className = "button is-info" >Edit Song</button></a> <button className = "button is-danger" onClick={deleteFavorite} >Delete Song</button></>: ''}    
+            {data.lyricsData ? <> <a href = '/'><button className = "button is-info" >Let Us Know / Edit Why You Love This Song!</button></a> <button className = "button is-danger" onClick={deleteFavorite} >Delete Song</button></>: ''}    
             <div>{data.lyricsData ? <> 
             <br/>
             <h2 className = 'bold'>To edit your favorite song simply click edit to search for a new favorite tune!</h2>

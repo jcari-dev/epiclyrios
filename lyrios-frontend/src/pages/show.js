@@ -11,9 +11,17 @@ function ShowFavVideo () {
 
         let response =  await fetch('http://localhost:4000/favsong')
 
+
         let data = await response.json();
-        setInfoArray(data)
-        getLyricsArray(data)
+        const sessionData = []
+        data.forEach((value)=>{
+            if(value.email === localStorage.getItem('SessionEmail')){
+                sessionData.push(value)
+            }
+        })
+        console.log(sessionData)
+        setInfoArray(sessionData)
+        getLyricsArray(sessionData)
         return console.log(data)
 
 
@@ -37,11 +45,11 @@ const maxResult = '&maxResults=1';
 const keyWord = '&q=rihanna';
 const type = '&type=video';
 // API Key 1
-const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
+// const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
 // // API Key 2
 // const key = '&key=AIzaSyAjtiGq13vuyxMjQfPS7Ngj0Mny-7ol3GM'
 //API Key 3
-// const key = '&key=AIzaSyAlEKircfin7Ratd0qMcJT50yknQLgk67c';
+const key = '&key=AIzaSyAlEKircfin7Ratd0qMcJT50yknQLgk67c';
 const topicId = '&topicId=04rlf';
 const [showYoutubeData, setShowYoutubeData] = React.useState(null)
 const getYoutubeData = async (searchTerm) => {
