@@ -53,7 +53,7 @@ margin-right: -24px;
 export const NavBtn = styled.nav`
 display: flex;
 align-items: center;
-margin-right: 24px;
+margin-right: 10px;
 @media screen and (max-width: 768px) {
 	display: none;
 }
@@ -69,11 +69,5 @@ border: none;
 cursor: pointer;
 transition: all 0.2s ease-in-out;
 text-decoration: none;
-/* Second Nav */
-margin-left: 24px;
-&:hover {
-	transition: all 0.2s ease-in-out;
-	background: #fff;
-	color: #808080;
-}
+
 `;
