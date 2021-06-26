@@ -1,9 +1,8 @@
 import { FaBars } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Signin from './SignIn'
-import Logout from './Logout'
-import Session from './SignIn'
+import Session from './SignIn';
+
 const Nav = styled.nav`
 // background: #6B6B6B;
 background: black;

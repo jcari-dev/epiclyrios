@@ -31,14 +31,10 @@ app.use(bodyParser.json());
 app.use(cors())
 
 //controllers
-const sessionController = require('./controllers/session.js');
-app.use('/session', sessionController);
-const showController = require('./controllers/show');
-app.use('/show', showController);
-const userController = require('./controllers/user');
-app.use('/user', userController);
 
-const favoriteSongController = require('./controllers/favoritesong')
+
+
+const favoriteSongController = require('./controllers/favoriteSong')
 app.use('/favsong', favoriteSongController);
 // const index = require('././pages/index.js')
 app.get('/', (req, res) => {
@@ -52,38 +48,4 @@ mongoose.connect(URI || 'mongodb://localhost:27017/lyriosDB', { useNewUrlParser:
 mongoose.connection.once('open', () => {
     console.log('connected to mongo')
 })
-
-// const express = require("express");
-// const mongoose = require("mongoose");
-// const bodyParser = require("body-parser");
-// const passport = require("passport");
-
-// const users = require("./routes/api/users");
-
-// const app = express();
-// // Bodyparser middleware
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: false
-//   })
-// );
-// app.use(bodyParser.json());
-// // DB Config
-// const db = require("./config/keys").mongoURI;
-// // Connect to MongoDB
-// mongoose
-//   .connect(
-//     db,
-//     { useNewUrlParser: true }
-//   )
-//   .then(() => console.log("MongoDB successfully connected"))
-//   .catch(err => console.log(err));
-
-//  app.use(passport.initialize());
-//  require("./config/passport")(passport);
-//  app.use("/api/users", users);
-
-// const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
-// app.listen(port, () => console.log
-// (`Server up and running on port ${port} !`));
 

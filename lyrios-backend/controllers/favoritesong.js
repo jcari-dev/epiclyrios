@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/users.js');
+
 const app = express();
 const methodOverride = require('method-override');
 
 let bodyParser = require('body-parser');
 
-const favoritesong = require('../models/favoritesong.js');
+const favoritesong = require('../models/favoriteSongSchema.js');
 
 
 router.use(express.urlencoded({ extended: true}));
