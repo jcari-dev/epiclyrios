@@ -11,9 +11,17 @@ function ShowFavVideo () {
 
         let response =  await fetch('http://localhost:4000/favsong')
 
+
         let data = await response.json();
-        setInfoArray(data)
-        getLyricsArray(data)
+        const sessionData = []
+        data.forEach((value)=>{
+            if(value.email === localStorage.getItem('SessionEmail')){
+                sessionData.push(value)
+            }
+        })
+        console.log(sessionData)
+        setInfoArray(sessionData)
+        getLyricsArray(sessionData)
         return console.log(data)
 
 
@@ -37,11 +45,11 @@ const maxResult = '&maxResults=1';
 const keyWord = '&q=rihanna';
 const type = '&type=video';
 // API Key 1
-const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
+// const key = '&key=AIzaSyD5inzevVk7CDg0ipn9yBTXWP_TtekfF0A'; 
 // // API Key 2
 // const key = '&key=AIzaSyAjtiGq13vuyxMjQfPS7Ngj0Mny-7ol3GM'
 //API Key 3
-// const key = '&key=AIzaSyAlEKircfin7Ratd0qMcJT50yknQLgk67c';
+const key = '&key=AIzaSyAlEKircfin7Ratd0qMcJT50yknQLgk67c';
 const topicId = '&topicId=04rlf';
 const [showYoutubeData, setShowYoutubeData] = React.useState(null)
 const getYoutubeData = async (searchTerm) => {
@@ -201,7 +209,8 @@ const lyricsArrayNew = ['That La, La, La Rihanna','Across The Room ODESZA']
 return (
 	<div>
         <br/>
-        <h1>Your Favorite Song Below</h1>
+        <h1>Your Favorite Song Below (Press the delete button, to delete this song, and chekout our other favorites!)</h1>
+        <br/>
 {/* Hungry for more output */}
         {/* <div className = 'videoMap'>
             <div className = 'videoItem'>
@@ -214,9 +223,8 @@ return (
 {/* // Hungry for more above */}
             {showlyricsData ?
             <>{ showYoutubeData  && <UserOutput youtubeData={showYoutubeData} lyricsData={showlyricsData} userData={infoArray} />} </>:
-            <h3 className = 'boldUser'>Whoops, it appears you haven't signed in and picked a new favorite song! Please navigate to the home page and click add to favorites once signed in!</h3>
+            <h3 className = 'boldUser'>Whoops, it appears you haven't signed in and picked a new favorite song (or deleted all your previously saved tracks)! Please navigate to the home page and click add to favorites once signed in!</h3>
             }
-            <button onClick={getinfo}>test</button>
     </div>
 )
 };

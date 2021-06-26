@@ -1,8 +1,30 @@
 {
   "dependencies": {
+    "node": "^16.3.0",
     "package.json": "^2.0.1",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0"
-  }
+  },
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "name": "lyrios",
+  "description": "Project 3 - Create Your Music Playlist App",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelcodes23/Lyrios.git"
+  },
+  "author": "michaelcs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelcodes23/Lyrios/issues"
+  },
+  "homepage": "https://github.com/michaelcodes23/Lyrios#readme"
 }
