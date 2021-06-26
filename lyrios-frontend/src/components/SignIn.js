@@ -13,8 +13,8 @@ const Signin = () => {
 		console.log(response.profileObj)
 		localStorage.setItem('SessionEmail', response.profileObj.email)
 		localStorage.setItem('SessionName', response.profileObj.name)
+        // The useHistory hook gives you access to the history instance that you may use to navigate.
 		history.push('/show')
-
 	}
 
 
@@ -33,12 +33,13 @@ const Signin = () => {
 	const logoutGoogle = () => {
 		console.log('logout was succcessful')
 		localStorage.removeItem('SessionEmail')
+        localStorage.removeItem('SessionName')
 		history.push('/')
 		
 	}
 return (
 	<div>
-	{/* <h1>Sign in / Sign Out</h1> */}
+
 
 	{localStorage.getItem('SessionEmail') === null ? <>
 	<GoogleLogin
