@@ -1,13 +1,13 @@
 {
   "name": "lyrios-backend",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon index.js",
     "start": "nodemon --exec npm start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Michael CS Hayley Taylor Rafael Columna",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
