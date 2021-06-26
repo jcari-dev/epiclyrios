@@ -35,19 +35,22 @@ router.post('/', (req, res) => {
     favoritesong.create([{
         name: req.body.name,
         email: req.body.email,
-        favoriteSong: req.body.favsong
+        favoriteSong: req.body.favsong,
+        whyFavorite: 'because I love it'
     }])
 
     res.send('created new fav song document')
 })
 
-router.delete('/', (req, res) => {
-    favoritesong.findOneAndRemove({
-        email: req.body.email,
-        name: req.body.name,
-        favoriteSong: req.body.favsong
-    })
-    res.send('Delete a user from the app')
+router.delete('/:favId', async (req, res) => {
+    // favoritesong.findOneAndRemove({
+    //     email: req.body.email,
+    //     name: req.body.name,
+    //     favoriteSong: req.body.favsong
+    // })
+    const favId = req.params.favId
+    const deletedFavorite = await favoritesong.findByIdAndDelete(favId);
+    res.json({deletedFavorite})
 })
 
 
