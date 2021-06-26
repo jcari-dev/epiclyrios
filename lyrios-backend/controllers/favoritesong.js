@@ -20,7 +20,7 @@ router.use(express.json({
 
 
 
-
+//New Route
 router.get('/', (req, res) => {
 
     favoritesong.find({}, (error, foundfavsong) =>{
@@ -30,24 +30,37 @@ router.get('/', (req, res) => {
 })
 
 
-
+//Create Route
 router.post('/', (req, res) => {
     favoritesong.create([{
         name: req.body.name,
         email: req.body.email,
-        favoriteSong: req.body.favsong
+        favoriteSong: req.body.favsong,
+        whyFavorite: 'Because I love it'
     }])
 
     res.send('created new fav song document')
 })
 
-router.delete('/', (req, res) => {
-    favoritesong.findOneAndRemove({
-        email: req.body.email,
-        name: req.body.name,
-        favoriteSong: req.body.favsong
+// Edit Route 
+router.put('/edit/:favId', async (req, res) => {
+    favoritesong.findByIdAndUpdate(req.params.favId, req.body, {new : true}, (error, getData)=>{
+   
     })
-    res.send('Delete a user from the app')
+    // const favId = req.params.favId
+    // const updatedFavorite = await favoritesong.findByIdAndUpdate(favId)
+    // res.json({updatedFavorite})
+})
+//Delete Route
+router.delete('/:favId', async (req, res) => {
+    // favoritesong.findOneAndRemove({
+    //     email: req.body.email,
+    //     name: req.body.name,
+    //     favoriteSong: req.body.favsong
+    // })
+    const favId = req.params.favId
+    const deletedFavorite = await favoritesong.findByIdAndDelete(favId);
+    res.json({deletedFavorite})
 })
 
 

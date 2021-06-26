@@ -1,12 +1,36 @@
 import React from 'react';
 import YouTube from 'react-youtube'
-
+import Axios from 'axios'
 
 
 const UserOutput = (data) => {
+    console.log(data.userData)
+    console.log(data.userData[0])
+    console.log(data.userData[0]._id)
+    const deleteFavorite = async () => {
+    await Axios.delete(`http://localhost:4000/favsong/${data.userData[0]._id}`)
+    console.log('Deleting favorite song')
+    window.location.reload();
+    }
 
-
-
+    // let getinfo = async() => {
+    //     let response =  await Axios.get('http://localhost:4000/favsong')
+    //     const userFavs = []
+    //     response.data.forEach((elm)=>{
+    //         if (elm.email === localStorage.getItem('SessionEmail')){
+    //             userFavs.push(elm)
+    //         }
+    //     })
+    //     const newFavs = userFavs.map((elm)=>{
+    //         return(
+    //             <div>
+    //                 <p>{elm.favoriteSong}</p>
+    //                 <button onClick={() => deleteFavorite(elm._id)}>Delete Favorite</button>
+    //             </div>
+    //         )
+    //     })
+    //     setMyFavs(newFavs)
+    // }
 
 
     console.log(data.youtubeData)
@@ -23,11 +47,16 @@ const UserOutput = (data) => {
            
             </div>
             <br/>
-            
-            {data.lyricsData ? <> <a href = '/'><button className = "button is-info" >Edit Song</button></a> <button className = "button is-danger" >Delete Song</button></>: ''}    
+            {data.userData[0].whyFavorite? <h4 className = "loveReason">Why this song? {data.userData[0].whyFavorite}</h4>: ''}
+            <br/>
+            {data.lyricsData ? <> <a href = '/edit'><button className = "button is-info" >Let Us Know / Edit Why You Love This Song!</button></a> <button className = "button is-danger" onClick={deleteFavorite} >Delete Song</button></>: ''}    
             <div>{data.lyricsData ? <> 
             <br/>
+
+           
             <h2 className = 'bold'>To edit your favorite song simply click edit to search for a new favorite tune!</h2>
+            <br/>
+
             <p className = "lyrics">{data.lyricsData.result.lyrics}</p>
             </>: 'No Lyrics Data Was Found'}</div>
             {/* {youtubeData ?   <>     
