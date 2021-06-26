@@ -12,8 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.Heading{
-  font-size: 2em;
+.heading{
+  font-size: 1.5em;
+  font-weight: bold;
 }
 .indexTop{
   margin-bottom: 20px;
