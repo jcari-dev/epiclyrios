@@ -209,7 +209,8 @@ const lyricsArrayNew = ['That La, La, La Rihanna','Across The Room ODESZA']
 return (
 	<div>
         <br/>
-        <h1>Your Favorite Song Below</h1>
+        <h1>Your Favorite Song Below (Press the delete button, to delete this song, and chekout our other favorites!)</h1>
+        <br/>
 {/* Hungry for more output */}
         {/* <div className = 'videoMap'>
             <div className = 'videoItem'>
@@ -222,9 +223,8 @@ return (
 {/* // Hungry for more above */}
             {showlyricsData ?
             <>{ showYoutubeData  && <UserOutput youtubeData={showYoutubeData} lyricsData={showlyricsData} userData={infoArray} />} </>:
-            <h3 className = 'boldUser'>Whoops, it appears you haven't signed in and picked a new favorite song! Please navigate to the home page and click add to favorites once signed in!</h3>
+            <h3 className = 'boldUser'>Whoops, it appears you haven't signed in and picked a new favorite song (or deleted all your previously saved tracks)! Please navigate to the home page and click add to favorites once signed in!</h3>
             }
-            <button onClick={getinfo}>test</button>
     </div>
 )
 };

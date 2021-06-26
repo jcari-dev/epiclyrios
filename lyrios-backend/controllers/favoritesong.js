@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
         name: req.body.name,
         email: req.body.email,
         favoriteSong: req.body.favsong,
-        whyFavorite: 'because I love it'
+        whyFavorite: 'Because I love it'
     }])
 
     res.send('created new fav song document')

@@ -47,11 +47,16 @@ const UserOutput = (data) => {
            
             </div>
             <br/>
-
-            {data.lyricsData ? <> <a href = '/'><button className = "button is-info" >Let Us Know / Edit Why You Love This Song!</button></a> <button className = "button is-danger" onClick={deleteFavorite} >Delete Song</button></>: ''}    
+            {data.userData[0].whyFavorite? <h4 className = "loveReason">Why this song? {data.userData[0].whyFavorite}</h4>: ''}
+            <br/>
+            {data.lyricsData ? <> <a href = '/edit'><button className = "button is-info" >Let Us Know / Edit Why You Love This Song!</button></a> <button className = "button is-danger" onClick={deleteFavorite} >Delete Song</button></>: ''}    
             <div>{data.lyricsData ? <> 
             <br/>
+
+           
             <h2 className = 'bold'>To edit your favorite song simply click edit to search for a new favorite tune!</h2>
+            <br/>
+
             <p className = "lyrics">{data.lyricsData.result.lyrics}</p>
             </>: 'No Lyrics Data Was Found'}</div>
             {/* {youtubeData ?   <>     
